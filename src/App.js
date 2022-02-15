@@ -1,25 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
-
+// import logo from './logo.svg';
+// import './App.css';
+// import ReactDOM from 'react-dom'
+// import { Physics, useCylinder, usePlane } from '@react-three/cannon'
+import { Canvas } from '@react-three/fiber'
+import Ground from './component/Ground.js'
+import { OrbitControls, Environment } from '@react-three/drei'
+// import { PlaneBufferGeometry } from 'three';
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div id="canvas-container">
+      <Canvas dpr={[1, 1.5]} shadows camera={{ position: [0, 5, 15], fov: 50 }}>
+        <fog attach="fog" args={['#171720', 10, 50]} />
+        <Ground />
+        <OrbitControls />
+      </Canvas>
+
     </div>
-  );
+  )
 }
 
 export default App;
